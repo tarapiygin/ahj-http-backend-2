@@ -11,13 +11,13 @@ module.exports = class FileManager {
     const id = uuid.v1();
     const extension = data.name.slice(data.name.lastIndexOf('.'), data.name.length);
     const URL = `img/${id + extension}`;
-    const path = `${server.publicPath}/${URL}`;
-    console.log(data.path);
+    const name = `${server.publicPath}/${URL}`;
     const file = fs.readFileSync(data.path, 'binary');
-    fs.writeFileSync(path, file, 'binary');
+    fs.writeFileSync(name, file, 'binary');
+    console.log(file);
     this.imageObjList.push({
       id,
-      path,
+      path: name,
       URL,
     });
     this.saveState();
