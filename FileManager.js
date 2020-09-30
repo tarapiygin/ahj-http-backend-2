@@ -12,8 +12,8 @@ module.exports = class FileManager {
     const extension = data.name.slice(data.name.lastIndexOf('.'), data.name.length);
     const URL = `img/${id + extension}`;
     const path = `${server.publicPath}/${URL}`;
-    console.log(data.path);
     const file = fs.readFileSync(data.path, 'binary');
+    console.log('Файл создан');
     fs.writeFileSync(path, file, 'binary');
     this.imageObjList.push({
       id,
