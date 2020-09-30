@@ -1,5 +1,4 @@
 /* eslint-disable no-shadow */
-const path = require('path');
 const http = require('http');
 const Koa = require('koa');
 const koaBody = require('koa-body');
@@ -8,7 +7,7 @@ const serve = require('koa-static');
 const FileManager = require('./FileManager');
 
 const app = new Koa();
-const publicPath = path.join(__dirname, '/public');
+const publicPath = ('./public');
 module.exports.publicPath = publicPath;
 app.use(serve(publicPath));
 app.use(cors());

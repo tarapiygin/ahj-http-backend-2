@@ -13,6 +13,7 @@ module.exports = class FileManager {
     const URL = `img/${id + extension}`;
     const path = `${server.publicPath}/${URL}`;
     const file = fs.readFileSync(data.path, 'binary');
+    console.log('Файл Получен');
     fs.writeFileSync(path, file, 'binary');
     console.log('Файл записан');
     this.imageObjList.push({
