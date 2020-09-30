@@ -13,13 +13,14 @@ module.exports = class FileManager {
     const URL = `img/${id + extension}`;
     const path = `${server.publicPath}/${URL}`;
     const file = fs.readFileSync(data.path, 'binary');
-    console.log('Файл создан');
     fs.writeFileSync(path, file, 'binary');
+    console.log('Файл записан');
     this.imageObjList.push({
       id,
       path,
       URL,
     });
+    console.log('Файл запушен');
     this.saveState();
     return { id, URL };
   }
